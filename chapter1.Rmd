@@ -3,6 +3,8 @@
 
 *Write a short description about the course and add a link to your GitHub repository here. This is an R Markdown (.Rmd) file so you should use R Markdown syntax.*
 
+**Hello!**
+
 ```{r}
 # This is a so-called "R chunk" where you can write R code.
 
@@ -10,4 +12,23 @@ date()
 
 ```
 The text continues here.
+
+I'm feeling excited! I took this course, since I needed to have one more method course as a part of my Master's degree. Our faculty doesn't offer very good courses, so I checked what other faculties have. This course sounded interesting, since I wanted to learn more about statistics and R.
+
+*List of things I like
+
+ + dog
++ potato
++ bear
++ coffee
++ swamp
++ Henni
++ Kalle
+
+
+
+
+[My GitHub Repository](https://github.com/riikkanarvanen/IODS-project)
+
+
 
