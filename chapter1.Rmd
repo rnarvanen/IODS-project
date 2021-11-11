@@ -17,13 +17,14 @@ I'm feeling excited! I took this course, since I needed to have one more method 
 
 *List of things I like
 
- + dog
++ dog
 + potato
 + bear
 + coffee
 + swamp
 + Henni
 + Kalle
++ music
 
 
 
