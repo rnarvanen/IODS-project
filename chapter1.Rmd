@@ -13,7 +13,7 @@ date()
 ```
 The text continues here.
 
-I'm feeling excited! I took this course, since I needed to have one more method course as a part of my Master's degree. Our faculty doesn't offer very good courses, so I checked what other faculties have. This course sounded interesting, since I wanted to learn more about statistics and R.
+I'm feeling excited! I took this course, since I needed to have one more method course as a part of my Master's degree. Our faculty doesn't offer very good courses, so I checked what other faculties have. This course sounded interesting, since I wanted to learn more about statistics and R. You are a wizard Harry!
 
 *List of things I like
 
