@@ -9,5 +9,104 @@
 ```{r}
 date()
 ```
+```{r}
+```
 
-Here we go again...
+
+```{r}
+#reading the wrangled data
+
+read.csv("learning2014.csv", header = TRUE, sep = ",", quote = "\"", dec = ".", fill = TRUE, comment.char = "")
+
+#structure of the data
+str(learning2014)
+dim(learning2014)
+```
+
+
+# Dataset has 166 observations and 7 variables. Variables are gender, age, attitude, points and three different learning strategies: deep learning (deep), strategic learning (stra) and surface learning (surf). Learning strategies are numerical scale variable, gender is character scale variable and age, attitude and points are interval scale variables. 
+#The aim of the study is to examine, how different learning strategies affect students' performance in the final exam of the course. Also connection of the background variables and different learning strategies are studied. This data was collected from a introductory course to statistcs in 2014 for educational purposes.
+
+```{r}
+#summaries and graphs of the data
+
+summary(learning2014)
+plot(learning2014)
+
+library(ggplot2)
+p1 <- ggplot(learning2014, aes(x = Attitude, y = Points))
+p1
+
+deep <- learning2014$deep
+Points <- learning2014$Points
+
+p2 <- ggplot(learning2014, aes(x = deep, y = Points))
+p2
+
+#I need to use the old version of R with computer I am still using for couple of days and as far as I'm conserned it does not support all of the graphs, that's why it looks corrupted. But you understand the idea. Also, I'm changing my computer soon, so these problems should be history by the next week!
+```
+# Note: I round up all the values (except for learning strategies) to the closest whole number, to make this more nice to read. 
+# Age varies between 17 and 55 in the course. Mean age is 26 and median is 22. 
+# Attitude varies between 14 and 50. Mean is 31 and median is 32.
+# Points vary between 7 and 33, 0 points are excluded from the data set. Median and mean are both 23.
+# Learning strategies vary between 1.25 and 5.00. Deep learning has the highest mean, 3.680, and median, 3.667. 
+
+```{r}
+#testing simple regression first
+
+library(ggplot2)
+qplot(Attitude, Points, data = learning2014) + geom_smooth(method = "lm")
+```
+```{r}
+#Multiple regression: Dependent variable = Points, Explanatory variables = Attitude, deep, stra
+
+library(ggplot2)
+library(GGally)
+
+ggpairs(learning2014, lower = list(combo = wrap("facethist", bins = 20)))
+
+my_regression_model1 <- lm(Points ~ Attitude + deep + stra, data = learning2014)
+
+my_regression_model1
+summary(my_regression_model1)
+
+plot(my_regression_model1, which=2)
+```
+# Attitude has moderate positive correlation, deep learning has fairly strong negative correlaton and strategic learning has very strong positive correlation with Points.
+# It seems like learning strategy is more important than attitude when considering performance in exam. Especially strategic learning. 
+# Explain and interpret the statistical test related to the model parameters: ? something about linear regression?
+
+```{r}
+# fit a linear model
+
+my_regression_model1 <- lm(Points ~ 1, Attitude + deep + stra, data = learning2014)
+my_regression_model1
+
+summary(my_regression_model1)
+```
+# there's some significanse in the air
+
+
+```{r}
+# graphics
+
+library(ggplot2)
+library(GGally)
+
+my_regression_model1 <- lm(Points ~ Attitude + deep + stra, data = learning2014)
+
+#Residuals vs. fitted values
+plot(my_regression_model1, which=1)
+
+#Normal QQ-plot
+plot(my_regression_model1, which=2)
+
+#Residuals vs. leverage
+plot(my_regression_model1, which=5)
+```
+# 1st graph, looks good, spread is not systematic but random
+#2nd graph, 
+#3rd graph, 
+
+
+
